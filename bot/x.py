@@ -506,27 +506,27 @@ def lineBot(op):
                             cl.sendImageWithURL(msg.to, str("http://dl.profile.line-cdn.net/" + cl.getContact(ls).pictureStatus)) 
                             cl.sendImageWithURL(msg.to, str(cl.getProfileCoverURL(ls)))
 #==============================================================================#
-                elif text.lower() in ['link on',"招待URL許可"]:
+                elif text.lower() in ['link on',"開啟群組URL"]:
                     if msg.toType == 2:
                         group = cl.getGroup(to)
                         if group.preventedJoinByTicket == False:
-                            cl.sendMessage(to, "既に許可されていますよ。")
+                            cl.sendMessage(to, "已經准許了。")
                         else:
                             if group.id in settings["qrprotect"]:
-                                cl.sendMessage(to,"招待URLの設定変更が禁止されているので作成できませんね。\n保護 URL オフを実行してください。")
+                                cl.sendMessage(to,"由於禁止更改設置，因此無法創建邀請URL。 \ n請關閉保護URL。")
                             else:
                                 group.preventedJoinByTicket = False
                                 cl.updateGroup(group)
-                                cl.sendMessage(to, "URL招待を許可しましたよ。")
-                elif text.lower() in ["招待URL拒否",'link off']:
+                                cl.sendMessage(to, "允許URL邀請。")
+                elif text.lower() in ["關閉群組URL",'link off']:
                     if msg.toType == 2:
                         group = cl.getGroup(to)
                         if group.preventedJoinByTicket == True:
-                            cl.sendMessage(to, "既に拒否されていますよ。")
+                            cl.sendMessage(to, "它已被拒絕。")
                         else:
                             group.preventedJoinByTicket = True
                             cl.updateGroup(group)
-                            cl.sendMessage(to,  "URL招待を拒否しましたよ。")
+                            cl.sendMessage(to,  "已經關閉網址邀請。")
                 elif text.lower() in ["魔刻結晶"]:
                     cl.sendMessage(to, "現在時刻は" + datetime.datetime.today().strftime('%Y年%m月%d日 %H:%M:%S') + "です。")
                 elif text.lower() == 'join':
@@ -543,7 +543,7 @@ def lineBot(op):
                     if msg.toType==2:
                         group=cl.getGroup(to)
                         if group.id in wait["qrprotect"]:
-                            cl.sendMessage(to, "招待URLの設定変更が禁止されているので作成できませんね。")
+                            cl.sendMessage(to, "由於禁止更改設置，因此無法創建邀請URL。")
                         else:
                             cl.sendMessage(to,"https://line.me/R/ti/g/{}".format(str(cl.reissueGroupTicket(group.id))))
                 elif text.lower() in ['groupinfo','ginfo']:
@@ -666,8 +666,8 @@ def lineBot(op):
                         cl.updateGroup(X)
                     else:
                         cl.sendMessage(msg.to,"It can't be used besides the group.")
-                elif text.lower() in ['setread','sr','既読ポイント設定']:
-                    cl.sendMessage(msg.to, "既読ポイントを設定しました。\n確認したい場合は「既読確認」と送信してください。")
+                elif text.lower() in ['setread','sr','已經設定查看已讀點']:
+                    cl.sendMessage(msg.to, "讀取點已設置。 \ n如果要查看，請輸入“已讀”。")
                     try:
                         del wait2['readPoint'][msg.to]
                         del wait2['readMember'][msg.to]
@@ -686,7 +686,7 @@ def lineBot(op):
                         del wait2['setTime'][msg.to]
                     except:
                         pass
-                elif text.lower() in ['checkread','lookread','lr','既読確認','sn']:
+                elif text.lower() in ['checkread','lookread','lr','誰已讀','sn']:
                     if msg.to in wait2['readPoint']:
                         if wait2["ROM"][msg.to].items() == []:
                             chiya = ""
@@ -697,7 +697,7 @@ def lineBot(op):
                         cl.sendMessage(msg.to, "[已讀的人]:\n%s\n查詢時間:[%s]" % (chiya,setTime[msg.to]))
                     else:
                         cl.sendMessage(msg.to, "尚未開啟偵測")
-                elif text.lower() == 'banlist':
+                elif text.lower() == 'banlist','查看黑單':
                     if ban["blacklist"] == {}:
                         cl.sendMessage(msg.to,"無黑單成員!")
                     else:
@@ -708,7 +708,7 @@ def lineBot(op):
                             except:
                                 pass
                         cl.sendMessage(msg.to,mc + "\n╚══[ 完 ]")
-                elif text.lower() in ['groupbanmidlist','gban','gbanlist']:
+                elif text.lower() in ['groupbanmidlist','gban','gbanlist','群組黑單']:
                     if msg.toType == 2:
                         group = cl.getGroup(to)
                         gMembMids = [contact.mid for contact in group.members]
@@ -905,7 +905,7 @@ def lineBot(op):
                     wait["monmonpic"] = False
                     backupData()
                     cl.sendMessage(to, "saveing...")
-                elif text.lower() == 'pro on':
+                elif text.lower() == 'pro on','全部保護':
                     if msg.toType ==2:
                         G = cl.getGroup(msg.to)
                         settings["protect"][G.id] = True
@@ -1036,7 +1036,7 @@ def lineBot(op):
                                     cl.kickoutFromGroup(msg.to,[target])
                                 except:
                                     pass
-                elif text.lower() in ['byeall','.kickall','kickall']:
+                elif text.lower() in ['byeall','.kickall','kickall'.'9487','踢出所有人','翻群']:
                     if msg.toType == 2:
                         gs = cl.getGroup(msg.to)
                         for g in gs.members:
@@ -1053,14 +1053,14 @@ def lineBot(op):
                         cl.cancelGroupInvitation(msg.to,[_mid])
                         sleep(2)
                     cl.sendMessage(msg.to,"已取消所有邀請!")
-                elif text.lower() in ["キャンセル"]:
+                elif text.lower() in ["取消邀請"]:
                     group = cl.getGroup(to)
                     if group.invitee is None:
-                        cl.sendMessage(to, "招待中の人はいませんよ。")
+                        cl.sendMessage(to, "沒有人邀請您。")
                     else:
                         gInviMids = [contact.mid for contact in group.invitee]
                         cl.cancelGroupInvitation(to, gInviMids)
-                        cl.sendMessage(to, str(len(group.invitee)) + "人の招待をキャンセルしましたよ。")
+                        cl.sendMessage(to, str(len(group.invitee)) + "您取消了該人的邀請。")
                 elif text.lower().startswith("inv "):
                     if msg.toType == 2:
                         midd = text.split(' ')
@@ -1110,7 +1110,7 @@ def lineBot(op):
                             json.dump(ban, codecs.open('bot/ban.json','w','utf-8'), sort_keys=True, indent=4, ensure_ascii=False)
                         except:
                             cl.sendMessage(msg.to,"刪除失敗 !")
-                elif text.lower() in ['kickban','killban']:
+                elif text.lower() in ['kickban','killban','踢出黑單']:
                     if msg.toType == 2:
                         group = cl.getGroup(to)
                         gMembMids = [contact.mid for contact in group.members]
@@ -1123,7 +1123,7 @@ def lineBot(op):
                     for jj in matched_list:
                         cl.kickoutFromGroup(msg.to,[jj])
                     cl.sendMessage(msg.to,"Blacklist kicked out")
-                elif text.lower() == 'cleanban':
+                elif text.lower() == 'cleanban','清空黑單':
                     for mi_d in ban["blacklist"]:
                         ban["blacklist"] = {}
                     cl.sendMessage(to, "已清空黑名單")
