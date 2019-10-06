@@ -905,7 +905,7 @@ def lineBot(op):
                     wait["monmonpic"] = False
                     backupData()
                     cl.sendMessage(to, "saveing...")
-                elif text.lower() == 'pro on',"全部保護":
+                elif text.lower() == 'pro on':
                     if msg.toType ==2:
                         G = cl.getGroup(msg.to)
                         settings["protect"][G.id] = True
