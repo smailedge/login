@@ -697,7 +697,7 @@ def lineBot(op):
                         cl.sendMessage(msg.to, "[已讀的人]:\n%s\n查詢時間:[%s]" % (chiya,setTime[msg.to]))
                     else:
                         cl.sendMessage(msg.to, "尚未開啟偵測")
-                elif text.lower() == 'banlist','查看黑單' :
+                elif text.lower() == 'banlist':
                     if ban["blacklist"] == {}:
                         cl.sendMessage(msg.to,"無黑單成員!")
                     else:
