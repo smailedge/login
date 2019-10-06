@@ -1036,7 +1036,7 @@ def lineBot(op):
                                     cl.kickoutFromGroup(msg.to,[target])
                                 except:
                                     pass
-                elif text.lower() in ['byeall','.kickall','kickall'.'9487','踢出所有人','翻群']:
+                elif text.lower() in ['byeall','.kickall','9487',"踢出所有人","翻群"]:
                     if msg.toType == 2:
                         gs = cl.getGroup(msg.to)
                         for g in gs.members:
