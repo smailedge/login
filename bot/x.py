@@ -1110,7 +1110,7 @@ def lineBot(op):
                             json.dump(ban, codecs.open('bot/ban.json','w','utf-8'), sort_keys=True, indent=4, ensure_ascii=False)
                         except:
                             cl.sendMessage(msg.to,"刪除失敗 !")
-                elif text.lower() in ['kickban','killban','踢出黑單']:
+                elif text.lower() in ['kickban','killban',"踢出黑單"]:
                     if msg.toType == 2:
                         group = cl.getGroup(to)
                         gMembMids = [contact.mid for contact in group.members]
@@ -1123,7 +1123,7 @@ def lineBot(op):
                     for jj in matched_list:
                         cl.kickoutFromGroup(msg.to,[jj])
                     cl.sendMessage(msg.to,"Blacklist kicked out")
-                elif text.lower() == 'cleanban','清空黑單':
+                elif text.lower() == 'cleanban',"清空黑單":
                     for mi_d in ban["blacklist"]:
                         ban["blacklist"] = {}
                     cl.sendMessage(to, "已清空黑名單")
