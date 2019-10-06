@@ -666,7 +666,7 @@ def lineBot(op):
                         cl.updateGroup(X)
                     else:
                         cl.sendMessage(msg.to,"It can't be used besides the group.")
-                elif text.lower() in ['setread','sr','已經設定查看已讀點']:
+                elif text.lower() in ['setread','sr',"設定已讀點"]:
                     cl.sendMessage(msg.to, "讀取點已設置。 \ n如果要查看，請輸入“已讀”。")
                     try:
                         del wait2['readPoint'][msg.to]
@@ -686,7 +686,7 @@ def lineBot(op):
                         del wait2['setTime'][msg.to]
                     except:
                         pass
-                elif text.lower() in ['checkread','lookread','lr','誰已讀','sn']:
+                elif text.lower() in ['checkread','lookread','lr',"誰已讀",'sn']:
                     if msg.to in wait2['readPoint']:
                         if wait2["ROM"][msg.to].items() == []:
                             chiya = ""
@@ -708,7 +708,7 @@ def lineBot(op):
                             except:
                                 pass
                         cl.sendMessage(msg.to,mc + "\n╚══[ 完 ]")
-                elif text.lower() in ['groupbanmidlist','gban','gbanlist','群組黑單']:
+                elif text.lower() in ['groupbanmidlist','gban','gbanlist',"群組黑單"]:
                     if msg.toType == 2:
                         group = cl.getGroup(to)
                         gMembMids = [contact.mid for contact in group.members]
@@ -905,7 +905,7 @@ def lineBot(op):
                     wait["monmonpic"] = False
                     backupData()
                     cl.sendMessage(to, "saveing...")
-                elif text.lower() == 'pro on','全部保護' :
+                elif text.lower() == 'pro on',"全部保護":
                     if msg.toType ==2:
                         G = cl.getGroup(msg.to)
                         settings["protect"][G.id] = True
