@@ -1123,7 +1123,7 @@ def lineBot(op):
                     for jj in matched_list:
                         cl.kickoutFromGroup(msg.to,[jj])
                     cl.sendMessage(msg.to,"Blacklist kicked out")
-                elif text.lower() == 'cleanban',"清空黑單":
+                elif text.lower() == 'cleanban':
                     for mi_d in ban["blacklist"]:
                         ban["blacklist"] = {}
                     cl.sendMessage(to, "已清空黑名單")
