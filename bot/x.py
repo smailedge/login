@@ -289,23 +289,8 @@ def lineBot(op):
                 cl.sendMessage(op.param1,"Blacklist user joined...")
             if op.param1 in settings["mention"]:
                 name = str(cl.getGroup(op.param1).name)
-                sendMention(op.param1, "你好 @! 歡迎加入"+name,[op.param2])
-        if op.type == 19:
-            if op.param1 in settings["mention"]:
-                chiya=[op.param2]
-                chiya.append(op.param3)
-                sendMention(op.param1,"警告!! @! 踢了 @! ", chiya)
-            if op.param2 in ban["admin"] or op.param2 in ban["bots"] or op.param2 in ban["owners"]:
-                pass
-            elif op.param3 in ban["owners"]:
-                ban["blacklist"][op.param2] = True
-                json.dump(ban, codecs.open('bot/ban.json','w','utf-8'), sort_keys=True, indent=4, ensure_ascii=False)
-                cl.kickoutFromGroup(op.param1,[op.param2])
-                cl.inviteIntoGroup(op.param1,[op.param3])
-            elif op.param1 in settings["protect"]:
-                ban["blacklist"][op.param2] = True
-                cl.kickoutFromGroup(op.param1,[op.param2])
-                json.dump(ban, codecs.open('bot/ban.json','w','utf-8'), sort_keys=True, indent=4, ensure_ascii=False)
+                sendMention(op.param1, "你好 @! 歡迎加入"+name 👏歡迎新朋友加入👏 🔸進群請先看相簿重要事宜！ 🔸如有問題請在群組詢問唷！ 🔸如要下訂單的話，請至官方帳號結單🔸商品拍攝難免有色差問題，一律以實品為主，本群嚴🈲完美主義、跑單者，如跑單一律踢除，永不加回！ 謝各位的支持與愛護🙇‍,[op.param2])
+                sendMessage(op.param1, None, contentMetadata={'mid': 'ub6f9d53713c5869f0d78e71febe13837'}, contentType=13)
         if op.type == 24 or op.type == 21 or op.type ==22:
             if settings["autoLeave"] == True:
                 cl.leaveRoom(op.param1)
@@ -343,7 +328,7 @@ def lineBot(op):
                     cl.sendImage(to, "bot/linepy/loli/{}-image.png".format(str(random.randint(0,int(settings["pic"]-1)))))
             if sender in ban["admin"] or sender in ban["owners"]:
                 if text.lower() in ['speed','sp']:
-                    cl.sendMessage(to,"小喵極緩慢的測速中...\n結果約為"+str(timeit.timeit('"-".join(str(n) for n in range(100))',number=1000)) + "秒")
+                    cl.sendMessage(to,"緩慢的測速中...\n結果約為"+str(timeit.timeit('"-".join(str(n) for n in range(100))',number=1000)) + "秒")
                 elif text.lower() == 'save':
                     backupData()
                     cl.sendMessage(to,"儲存設定成功!")
