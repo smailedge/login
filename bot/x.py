@@ -271,7 +271,7 @@ def lineBot(op):
                                 sleep(0.2)
                                 cl.kickoutFromGroup(op.param1,[op.param3])
                     else:
-                        sendMention(op.param1, "警告 @! 試圖邀請多個人,但是基於限制無法取消QQ",[op.param2])
+                        sendMention(op.param1, "",[op.param2])
             else:
                 gInviMids = []
                 for z in op.param3:
@@ -289,8 +289,7 @@ def lineBot(op):
                 cl.sendMessage(op.param1,"Blacklist user joined...")
             if op.param1 in settings["mention"]:
                 name = str(cl.getGroup(op.param1).name)
-                sendMention(op.param1, "你好 @! \n👏歡迎新朋友加入👏\n🔸進群請先看相簿重要事宜！\n🔸如有問題請在群組詢問唷！\n🔸如要下訂單的話，請至官方帳號結單\n🔸商品拍攝難免有色差問題，一律以實品為主，本群嚴🈲跑單者，如跑單一律踢除，永不加回！\n謝各位的支持與愛護🙇‍",[op.param2])
-                sendMention(op.param1, None, contentMetadata={'mid': 'ub6f9d53713c5869f0d78e71febe13837'}, contentType=13)
+                sendMention(op.param1, "歡迎 @! 新朋友的加入唷！麻煩看一下唷❤️\n\n🌟溫馨提醒～記得關群組提醒功能才不會吵到您唷🤗\n\n闆妹 👉 鈴鈴\n美女小幫手 👉 @xɪɴ \n帥哥小幫手 👉 @很愛張 \n闆妹不在有問題請私訊小幫手唷❤️\n\n\n🍀群組服務說明：\n\n商品皆是採預購方式\n現貨商品會特別說明\n\n不定時直播出清現貨商品\n（臉書或Iile群組直播）\n\n闆妹鈴鈴臉書：\n https://ppt.cc/f0bNBx\n\n🤗歡迎加我好友唷！😊\n\n🌸有問題歡迎私訊我唷！\n\n🉑️代找商品\n（私訊闆妹您的預算與物品圖即可）\n\n🉑️代包裝商品\n（🌟不收包裝費🥳）\n\n🌼預購商品不用先付款\n（下單一定要取貨付款唷！）\n\n💫貨到會通知各位🥰\n\n預購等待時間約7️至2️5️天\n⚠\n️（時間拉長是因為怕連假／海關那邊耽誤太多時間，早到會早發貨）\n\n✨能等待再下標唷😆😆\n\n\n付款方式：\n\n❶ 商品皆可超商貨到付款＋運費$60\n\n❷ 匯款店到店取貨\n（運費皆$60不管大小箱）\\n❸ 匯款宅配到府\n（運費實收／運費$60、$80、$120、$150，越大箱越貴／附上收據收取運費）\n\n❹ 匯款郵寄\n（運費實收／附上收據收取運費）\n\n❺ 嘉義地區可面交\n\n—————————————\n💥注意事項\n\n貨到付款如未取貨退回之客人，闆妹會私訊請一定要回訊，只能請改用匯款方式補償上一趟運費與未取貨商品的價格及再次運送的運費。\n\n棄單者一律請在三日內匯款💥\n🆘產品遭退回將觸犯\n刑法第355條毀棄損壞罪\n(造成運費損失)請勿試法⚠️\n\n請務必於收到貨後\n12小時內確認商品狀況✨\n⚠️開封請錄影存證\n如未錄影一率不接受退換貨⚠️\n\n可以給好評就太感謝了❤️\n\n㊗️各位購物愉快😊",[op.param2])
         if op.type == 24 or op.type == 21 or op.type ==22:
             if settings["autoLeave"] == True:
                 cl.leaveRoom(op.param1)
