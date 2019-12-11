@@ -289,7 +289,7 @@ def lineBot(op):
                 cl.sendMessage(op.param1,"Blacklist user joined...")
             if op.param1 in settings["mention"]:
                 name = str(cl.getGroup(op.param1).name)
-                sendMention(op.param1, "你好 @! 歡迎加入\n\n本群組歡迎各位邀請進入公布黑名單唷，歡迎多多使用 此群組管理員為 @Yuan 有問題請詢問我唷",[op.param2])
+                sendMention(op.param1, "👏歡迎 @! 新朋友加入👏\n\n🔸進群請先看相簿重要事宜！本群服務時間為週一～週日，早上7:00-晚上11:30，謝謝。\n\n🔸闆闆平常白天在忙碌，期間如有問題，請直接私密即可，沒有馬上回復代表在忙碌，感謝！\n\n🔸商品拍攝難免有色差問題，一律以實品為主，本群嚴🈲完美主義、跑單者，如跑單一律踢除，永不加回！\n\n🔸請勿更改群組內的設定，如被機器人踢出，是不給予加回來的唷，請多多配合\n\n💎LowPrice 批發零售群💎敬上，謝謝各位的支持。",[op.param2])
         if op.type == 24 or op.type == 21 or op.type ==22:
             if settings["autoLeave"] == True:
                 cl.leaveRoom(op.param1)
