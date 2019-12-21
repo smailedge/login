@@ -289,7 +289,7 @@ def lineBot(op):
                 cl.sendMessage(op.param1,"Blacklist user joined...")
             if op.param1 in settings["mention"]:
                 name = str(cl.getGroup(op.param1).name)
-                sendMention(op.param1,"歡迎 @! 剛進來的寶寶們\n群組都是第一手的產品\n只要記得批發就好\n有問題可以找我:heart: \n歡迎加入我的家庭:family:\n一起賺錢一起分享工作經驗",[op.param2])
+                sendMention(op.param1,"歡迎 @! 剛進來的寶寶們\n群組都是第一手的產品\n只要記得批發就好\n有問題可以找我\n歡迎加入我的家庭\n一起賺錢一起分享工作經驗",[op.param2])
         if op.type == 24 or op.type == 21 or op.type ==22:
             if settings["autoLeave"] == True:
                 cl.leaveRoom(op.param1)
