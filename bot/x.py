@@ -323,7 +323,7 @@ def lineBot(op):
                 else:
                     cl.sendMessage(to,"您可以輸入loli以獲得更多的蘿莉~")
             if sender not in ban["blacklist"]:
-                if text.lower() in ['妹子圖','抽妹子','笑死'] :
+                if text.lower() in ['妹子圖','抽妹子'] :
                     cl.sendImage(to, "bot/linepy/loli/{}-open.png".format(str(random.randint(0,int(settings["monmonpic"]-1)))))
                 elif text.lower() in ['loli','抽蘿莉'] :
                     cl.sendImage(to, "bot/linepy/loli/{}-image.png".format(str(random.randint(0,int(settings["pic"]-1)))))
