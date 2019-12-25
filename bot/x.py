@@ -607,7 +607,7 @@ def lineBot(op):
                         ret_ += "\n╚══[ 共 {} 群 ]".format(str(no))
                         cl.sendMessage(to, str(ret_))
 #==============================================================================#
-                elif text.lower() == '全體起床':
+                elif text.lower() == '部隊起床':
                     group = cl.getGroup(msg.to)
                     nama = [contact.mid for contact in group.members]
                     k = len(nama)//20
