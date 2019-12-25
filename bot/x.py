@@ -156,7 +156,8 @@ def helpmessage():
 ╠✪〘 Other 〙✪════
 ╠➥ Say [text times] 重複講話
 ╠➥ Tag @ [times] 重複標人
-╠➥ Loli 抽蘿莉圖
+╠➥ Loli 抽蘿莉圖 (維護中)
+╠➥ 笑死 抽梗圖
 ╚═〘 製作者：邊緣工作室™ 〙"""
     return helpMessage
 def helpm():
@@ -201,7 +202,8 @@ def helpm():
 ╠➥ Adminlist 查看權限表
 ╠➥ Banlist 查看黑單
 ╠➥ Banmidlist 查看黑單者mid
-╠➥ Loli 抽蘿莉圖
+╠➥ Loli 抽蘿莉圖(維護中)
+╠➥ 笑死 抽梗圖
 ╚═〘 製作者：邊緣工作室™ 〙"""
     return helpM
 wait = {
@@ -289,7 +291,7 @@ def lineBot(op):
                 cl.sendMessage(op.param1,"Blacklist user joined...")
             if op.param1 in settings["mention"]:
                 name = str(cl.getGroup(op.param1).name)
-                sendMention(op.param1,"歡迎 @! 剛進來的寶寶們\n群組都是第一手的產品\n只要記得批發就好\n有問題可以找我\n歡迎加入我的家庭\n一起賺錢一起分享工作經驗",[op.param2])
+                sendMention(op.param1,"你好 @! \n\n🔸進群請先看相簿重要事宜！本群服務時間為週一～週日，早上7:00-晚上11:30，謝謝。\n\n🔸闆闆平常白天在忙碌，期間如有問題，請直接私密即可，沒有馬上回復代表在忙碌，感謝！\n\n🔸商品拍攝難免有色差問題，一律以實品為主，本群嚴🈲完美主義、跑單者，如跑單一律踢除，永不加回！\n\n🔸請勿更改群組內的設定，如被機器人踢出，是不給予加回來的唷，請多多配合唷\n\n官方Line@為:@352mclxi\n\n⚠本群唯一匯款銀行都是台新商業銀行，如有收到非台新商業銀行的帳號，請一定一定要私密 Yuan 問清楚唷！⚠ \n\n本群闆闆為 👉 Yuan\n\n小幫手為 👉華\n\n闆闆線上沒有回覆，請詢問小幫手唷!\n\n💎LowPrice 批發零售群💎敬上，謝謝各位的支持。",[op.param2])
         if op.type == 24 or op.type == 21 or op.type ==22:
             if settings["autoLeave"] == True:
                 cl.leaveRoom(op.param1)
