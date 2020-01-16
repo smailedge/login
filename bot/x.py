@@ -328,12 +328,12 @@ def lineBot(op):
                 elif text.lower() in ['loli','抽蘿莉'] :
                     cl.sendImage(to, "bot/linepy/loli/{}-image.png".format(str(random.randint(0,int(settings["pic"]-1)))))
             if sender in ban["admin"] or sender in ban["owners"]:
-                if text.lower() in ['speed','sp']:
+                if text.lower() in ['speed','sp','速度']:
                     cl.sendMessage(to,"緩慢的測速中...\n結果約為"+str(timeit.timeit('"-".join(str(n) for n in range(100))',number=1000)) + "秒")
-                elif text.lower() == 'save':
+                elif text.lower() == 'save','保存':
                     backupData()
                     cl.sendMessage(to,"儲存設定成功!")
-                elif text.lower() == 'runtime':
+                elif text.lower() == 'runtime','刷新':
                     cl.sendMessage(to, "系統已運作 {}".format(str(format_timespan(time.time() - botStart))))
                 elif text.lower() == 'about':
                     ret_ = "╔══[ 關於使用者 ]"
@@ -348,7 +348,7 @@ def lineBot(op):
                     ret_ += "\n╠ 擁有者 : 邊緣工作室"
                     ret_ += "\n╚══[ 感謝您的使用 ]"
                     cl.sendMessage(to, str(ret_))
-                elif text.lower() == 'set':
+                elif text.lower() == 'set','查看設定':
                     try:
                         ret_ = "╔══[ 本機設定 ]"
                         if settings["autoAdd"] == True: ret_ += "\n╠ 自動加入好友 ✅"
@@ -609,7 +609,7 @@ def lineBot(op):
                         ret_ += "\n╚══[ 共 {} 群 ]".format(str(no))
                         cl.sendMessage(to, str(ret_))
 #==============================================================================#
-                elif text.lower() == '部隊起床':
+                elif text.lower() == '標註':
                     group = cl.getGroup(msg.to)
                     nama = [contact.mid for contact in group.members]
                     k = len(nama)//20
@@ -652,8 +652,8 @@ def lineBot(op):
                         cl.updateGroup(X)
                     else:
                         cl.sendMessage(msg.to,"It can't be used besides the group.")
-                elif text.lower() in ['setread','sr',"設定已讀點"]:
-                    cl.sendMessage(msg.to, "讀取點已設置。 \ n如果要查看，請輸入“已讀”。")
+                elif text.lower() in ['setread','sr',"設定已讀點","設定已讀"]:
+                    cl.sendMessage(msg.to, "讀取點已設置")
                     try:
                         del wait2['readPoint'][msg.to]
                         del wait2['readMember'][msg.to]
@@ -664,7 +664,7 @@ def lineBot(op):
                     wait2['readMember'][msg.to] = ""
                     wait2['setTime'][msg.to] = datetime.strftime(now2,"%H:%M")
                     wait2['ROM'][msg.to] = {}
-                elif text.lower() in ['cancelread','cr']:
+                elif text.lower() in ['cancelread','cr',"刪除已讀"]:
                     cl.sendMessage(to, "已讀點已刪除")
                     try:
                         del wait2['readPoint'][msg.to]
@@ -736,16 +736,16 @@ def lineBot(op):
                 elif text.lower() == 'bomb':
                     cl.sendContact(to,"\'")
                 elif text.lower() in ["さようなら",'bye']:
-                    cl.sendMessage(msg.to, "考え直して頂けませんか...?\n(y/n)")
+                    cl.sendMessage(msg.to, "確定要我離開嗎?\n(y/n)")
                     wait['bye'][msg.to] = sender
                 elif text.lower() in ["Y","y","おk","N","n","だめ"]:
                     if msg._from== wait['bye'][msg.to]:
                         if text.lower() in ["いいよ",'y']:
-                            cl.sendMessage(msg.to, "分かりました...")
+                            cl.sendMessage(msg.to, "我離開了群組...")
                             cl.leaveGroup(msg.to)
                             del wait['bye'][msg.to]
                         elif text.lower() in ['n',"だめ"]:
-                            cl.sendMessage(msg.to, "考え直して頂けたようですね。ありがとうございます。")
+                            cl.sendMessage(msg.to, "我知道你是愛我的")
                             del wait['bye'][msg.to]
                     else:
                         pass
