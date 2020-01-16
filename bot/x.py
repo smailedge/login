@@ -330,7 +330,7 @@ def lineBot(op):
             if sender in ban["admin"] or sender in ban["owners"]:
                 if text.lower() in ['speed','sp','速度']:
                     cl.sendMessage(to,"緩慢的測速中...\n結果約為"+str(timeit.timeit('"-".join(str(n) for n in range(100))',number=1000)) + "秒")
-                elif text.lower() == 'save','保存':
+                elif text.lower() == "保存":
                     backupData()
                     cl.sendMessage(to,"儲存設定成功!")
                 elif text.lower() == "刷新":
