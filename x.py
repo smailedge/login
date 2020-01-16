@@ -348,7 +348,7 @@ def lineBot(op):
                     ret_ += "\n╠ 擁有者 : 邊緣工作室"
                     ret_ += "\n╚══[ 感謝您的使用 ]"
                     cl.sendMessage(to, str(ret_))
-                elif text.lower() == 'set',"查看設定":
+                elif text.lower() == "查看設定":
                     try:
                         ret_ = "╔══[ 本機設定 ]"
                         if settings["autoAdd"] == True: ret_ += "\n╠ 自動加入好友 ✅"
