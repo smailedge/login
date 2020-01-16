@@ -333,7 +333,7 @@ def lineBot(op):
                 elif text.lower() == 'save','保存':
                     backupData()
                     cl.sendMessage(to,"儲存設定成功!")
-                elif text.lower() == 'runtime','刷新':
+                elif text.lower() == "刷新":
                     cl.sendMessage(to, "系統已運作 {}".format(str(format_timespan(time.time() - botStart))))
                 elif text.lower() == 'about':
                     ret_ = "╔══[ 關於使用者 ]"
@@ -348,7 +348,7 @@ def lineBot(op):
                     ret_ += "\n╠ 擁有者 : 邊緣工作室"
                     ret_ += "\n╚══[ 感謝您的使用 ]"
                     cl.sendMessage(to, str(ret_))
-                elif text.lower() == 'set','查看設定':
+                elif text.lower() == 'set',"查看設定":
                     try:
                         ret_ = "╔══[ 本機設定 ]"
                         if settings["autoAdd"] == True: ret_ += "\n╠ 自動加入好友 ✅"
