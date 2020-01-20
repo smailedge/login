@@ -291,7 +291,7 @@ def lineBot(op):
                 cl.sendMessage(op.param1,"Blacklist user joined...")
             if op.param1 in settings["mention"]:
                 name = str(cl.getGroup(op.param1).name)
-                sendMention(op.param1,"你好 @! \n\n🔸進群請先看相簿重要事宜！本群服務時間為週一～週日，早上7:00-晚上11:30，謝謝。\n\n🔸闆闆平常白天在忙碌，期間如有問題，請直接私密即可，沒有馬上回復代表在忙碌，感謝！\n\n🔸商品拍攝難免有色差問題，一律以實品為主，本群嚴🈲完美主義、跑單者，如跑單一律踢除，永不加回！\n\n🔸請勿更改群組內的設定，如被機器人踢出，是不給予加回來的唷，請多多配合唷\n\n官方Line@為:@352mclxi\n\n⚠本群唯一匯款銀行都是台新商業銀行，如有收到非台新商業銀行的帳號，請一定一定要私密 Yuan 問清楚唷！⚠ \n\n本群闆闆為 👉 Yuan\n\n小幫手為 👉華\n\n闆闆線上沒有回覆，請詢問小幫手唷!\n\n💎LowPrice 批發零售群💎敬上，謝謝各位的支持。",[op.param2])
+                sendMention(op.param1,"哈囉🙋‍ @! 歡迎進群的朋友💕\n這裡是我個人的購物賣場🛒\n是個輕鬆逛開心買的小天地😊\n\n🔻進群須先注意以下幾點🔻\n1️⃣ 右上角選單請先關閉提醒🔇\n2️⃣ 記事本和相簿裡的商品可先逛逛看看👀\n3️⃣ 相簿裡的“購物須知”記得先看❗\n4️⃣ 有想找的商品歡迎上傳圖片到”許願商品“相簿\n5️⃣ 有任何問題歡迎踴躍詢問 不要客氣😉\n6️⃣ 請勿在群裡Po跟商品無相關的圖片資訊⛔\n7️⃣ 小本經營💰請先匯款轉帳完成 我才方便作業🙏\n📑下單流程：匯款👉訂貨👉備貨👉出貨\n\n🙌再次謝謝您的加入 也希望能服務到您🙌\n🎉祝您有個愉快的心情購物🛍",[op.param2])
         if op.type == 24 or op.type == 21 or op.type ==22:
             if settings["autoLeave"] == True:
                 cl.leaveRoom(op.param1)
