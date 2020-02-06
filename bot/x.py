@@ -1,3 +1,25 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@abc8806191 
+abc8806191
+/
+login
+1
+01
+ Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights Settings
+login/bot/x.py / 
+@abc8806191 abc8806191 Add files via upload
+1c26a76 5 days ago
+1431 lines (1427 sloc)  73.1 KB
+  
+You're using code navigation to jump to definitions or references.
+Learn more or give us feedback
 # -*-coding: utf-8 -*-
 from linepy import *
 #from numba import jit
@@ -83,7 +105,7 @@ def sendMention(to, text="", mids=[]):
     cl.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
 def helpmessage():
     helpMessage = """╔═══════════
-╠♥ 🏵️🏵️🏵️綠茶半垢幫助列表🏵️🏵️🏵️ ♥
+╠♥ ✿✿✿ 綠茶半垢幫助列表 ✿✿✿ ♥
 ╠✪〘 幫助 〙✪═════
 ╠➥ Help 查看指令
 ╠✪〘 Status 〙✪════
@@ -162,7 +184,7 @@ def helpmessage():
     return helpMessage
 def helpm():
     helpM = """╔═══════════
-╠🏵️🏵️🏵️綠茶半垢幫助列表🏵️🏵️🏵️
+╠♥ ✿✿✿ 綠茶半垢幫助列表 ✿✿✿ ♥
 ╠═✪〘 admin專用 〙✪═
 ╠✪〘 Help 〙✪═════
 ╠➥ Help 查看指令
@@ -192,18 +214,19 @@ def helpm():
 ╠➥ Nt 名字標注
 ╠➥ Zc 發送0字元友資
 ╠➥ Zt 標注0字元
-╠➥ 設定已讀點 已讀點設置
+╠➥ Setread 已讀點設置
 ╠➥ Cancelread 取消偵測
-╠➥ 誰已讀
-╠➥ Bye 机器退群(确认请打Y)
+╠➥ Checkread 已讀偵測
+╠➥ Bye 機器退群(確認請打Y)
 ╠✪〘 Other 〙✪════
-╠➥ Say [内容 次数] 重复说话
-╠➥ Tag @ [次数] 重复标人
-╠➥ Adminlist 查看权限表
-╠➥ Banlist 查看黑单
-╠➥ Banmidlist 查看黑单者mid
-╠➥ Loli 抽萝莉图
-╚═〘 制作者：绿茶工作室 〙
+╠➥ Say [內容 次數] 重複講話
+╠➥ Tag @ [次數] 重複標人
+╠➥ Adminlist 查看權限表
+╠➥ Banlist 查看黑單
+╠➥ Banmidlist 查看黑單者mid
+╠➥ Loli 抽蘿莉圖(維護中)
+╠➥ 笑死 抽梗圖
+╚═〘 製作者：绿茶工作室™ 〙"""
     return helpM
 wait = {
     "ban":False,
@@ -290,7 +313,7 @@ def lineBot(op):
                 cl.sendMessage(op.param1,"Blacklist user joined...")
             if op.param1 in settings["mention"]:
                 name = str(cl.getGroup(op.param1).name)
-                sendMention(op.param1,"哈囉🙋‍♀️ @! 歡迎進群的朋友💕\n這裡是我個人的購物賣場🛒\n是個輕鬆逛開心買的小天地😊\n\n👇進群須先注意以下幾點👇\n1. 右上角選單請先關閉提醒🔇\n2. 記事本和相簿裡的商品可先逛逛看看\n3. 相簿裡的“購物須知”記得先看❗\n4. 有想找的商品歡迎上傳圖片到”許願商品“相簿\n5. 有任何問題歡迎踴躍詢問 不要客氣😉\n6. 請勿在群裡Po跟商品無相關的圖片資訊⛔\n7. 小本經營💰請先匯款轉帳完成 我才方便作業🙏\n📑下單流程：匯款➡️訂貨➡️備貨➡️出貨\n\n🙇‍♀️再次謝謝您的加入 也希望能服務到您🤝\n🎉祝您有個愉快的心情購物🛍",[op.param2])
+                sendMention(op.param1,"歡迎 @! 剛進群組的寶貝🥰\n入群不要那麼快退群唷🥺因為商品太多樣 所以少數彩妝放記事本\n大部分都是用連線方式唷❤️",[op.param2])
         if op.type == 24 or op.type == 21 or op.type ==22:
             if settings["autoLeave"] == True:
                 cl.leaveRoom(op.param1)
@@ -1427,4 +1450,3 @@ while 1:
                 oepoll.setRevision(op.revision)
     except Exception as e:
         logError(e)
-
